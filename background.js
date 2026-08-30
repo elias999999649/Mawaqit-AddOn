@@ -2,7 +2,6 @@
 
 // Alarm beim Installieren oder Starten einrichten, um regelmäßig zu prüfen
 chrome.runtime.onInstalled.addListener(() => {
-  console.log('Mawaqit Erweiterung installiert.');
   // Alarm erstellen, der alle 1 Minute läuft
   chrome.alarms.create('checkPrayerTimes', { periodInMinutes: 1 });
 });
