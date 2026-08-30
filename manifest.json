@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Mawaqit Prayer Times",
+  "version": "1.0",
+  "description": "Prayer times widget powered by Mawaqit",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://mawaqit.net/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; frame-src https://mawaqit.net/;"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

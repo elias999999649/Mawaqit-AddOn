@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="brand">
+        <img id="logo" src="icon.png" alt="Logo">
+        <span>Mawaqit</span>
+      </div>
+      <div class="controls-section">
+        <button id="theme-toggle-btn" title="Toggle Theme">☀️</button>
+        <select id="lang-select">
+          <option value="en">English (EN)</option>
+          <option value="de">Deutsch (DE)</option>
+          <option value="ar">العربية (AR)</option>
+          <option value="tr">Türkçe (TR)</option>
+          <option value="ur">اردو (UR)</option>
+          <option value="id">Bahasa Indonesia (ID)</option>
+          <option value="fr">Français (FR)</option>
+        </select>
+        <button id="toggle-help-btn">Change Mosque</button>
+      </div>
+    </div>
+
+    <div id="pinned-bar" class="pinned-bar"></div>
+
+    <div id="anleitung-card" class="anleitung-card hidden">
+      <h3 id="txt-title">Change Mosque</h3>
+      <ol>
+        <li id="txt-step1">Search Google for your mosque + mawaqit</li>
+        <li id="txt-step2">Copy the link from the address bar</li>
+        <li id="txt-step3">Paste the link below and click Save</li>
+      </ol>
+
+      <div class="input-group">
+        <input type="text" id="link-input" placeholder="Paste Mawaqit link..." />
+        <button id="speichern-btn">Save</button>
+        <button id="pin-btn">⭐ Pin</button>
+      </div>
+      <div id="status-msg"></div>
+    </div>
+
+    <iframe id="mawaqit-frame" src="" frameborder="0"></iframe>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
