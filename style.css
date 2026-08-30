@@ -26,27 +26,32 @@ body.light-theme {
   box-sizing: border-box;
 }
 
-html, body {
-  width: 390px;
-  height: 570px;
+html {
+  width: 420px;
+  height: 600px;
   margin: 0;
-  padding: 10px;
-  box-sizing: border-box;
+  padding: 0;
   overflow: hidden;
 }
 
 body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 12px;
+  box-sizing: border-box;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   transition: background-color 0.2s ease, color 0.2s ease;
+  overflow: hidden;
 }
 
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .top-bar {
@@ -59,15 +64,15 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-color);
 }
 
 #logo {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -75,7 +80,7 @@ body {
 .controls-section {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 #theme-toggle-btn {
@@ -83,13 +88,13 @@ body {
   color: var(--text-color);
   border: 1px solid var(--input-border);
   border-radius: 6px;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   padding: 0;
   transition: all 0.2s ease;
 }
@@ -104,8 +109,8 @@ body {
   color: var(--text-color);
   border: 1px solid var(--input-border);
   border-radius: 6px;
-  padding: 5px 9px;
-  font-size: 11px;
+  padding: 6px 10px;
+  font-size: 12px;
   outline: none;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -123,11 +128,11 @@ body {
   background: #4caf50;
   color: #fff;
   border: none;
-  padding: 5px 9px;
+  padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 12px;
   white-space: nowrap;
   transition: all 0.2s ease;
 }
@@ -144,7 +149,7 @@ body {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 12px;
+  padding: 14px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -170,8 +175,8 @@ body {
   background: var(--input-bg);
   border: 1px solid var(--border-color);
   color: var(--text-color);
-  font-size: 11px;
-  padding: 4px 10px;
+  font-size: 12px;
+  padding: 5px 12px;
   border-radius: 12px;
   cursor: pointer;
   white-space: nowrap;
@@ -205,8 +210,8 @@ body {
 
 .input-group {
   display: flex;
-  gap: 6px;
-  margin-top: 8px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 #link-input {
@@ -228,7 +233,7 @@ body {
   background: var(--primary-color);
   color: #fff;
   border: none;
-  padding: 6px 12px;
+  padding: 7px 14px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
@@ -253,35 +258,32 @@ body {
 }
 
 #status-msg {
-  font-size: 11px;
-  margin-top: 6px;
+  font-size: 12px;
+  margin-top: 8px;
 }
 
 #mawaqit-frame {
   width: 100%;
+  height: 100%;
   flex: 1;
+  min-height: 0;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 8px;
 }
 
 .anleitung-card h3 {
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
   font-size: 14px;
   color: var(--primary-color);
 }
 
 .anleitung-card ol {
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   padding-left: 20px;
   font-size: 12px;
   color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.input-group {
-  display: flex;
-  gap: 6px;
+  line-height: 1.6;
 }
 
 input {
@@ -304,38 +306,14 @@ input:focus {
   border-color: var(--primary-color);
 }
 
-#speichern-btn {
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 12px;
-  white-space: nowrap;
-  transition: background 0.2s ease;
-}
 
-#speichern-btn:hover {
-  background: var(--primary-hover);
-}
-
-#status-msg {
-  font-size: 11px;
-  margin-top: 8px;
-  color: var(--text-muted);
-  min-height: 14px;
-}
 
 iframe {
   flex: 1;
   width: 100%;
-  border-radius: 10px;
-  border: none;
-  background: #1a1a1a;
-}
+  border-radius: 8px;
   border: 1px solid var(--border-color);
+  background: var(--card-bg);
 }
 
 /* RTL-Unterstützung für Arabisch und Urdu */

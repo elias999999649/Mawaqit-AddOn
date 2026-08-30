@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyLanguage(lang) {
     const t = translations[lang] || translations.en;
     langSelect.value = lang;
-    toggleHelpBtn.textContent = t.toggleHelpBtn;
+    toggleHelpBtn.textContent = '🕌 ' + t.toggleHelpBtn;
     txtTitle.textContent = t.txtTitle;
     txtStep1.textContent = t.txtStep1;
     txtStep2.textContent = t.txtStep2;
