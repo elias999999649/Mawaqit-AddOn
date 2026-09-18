@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const DEFAULT_SLUG = 'ensar-camii-mossingen-mossingen-72116-g';
+  const DEFAULT_SLUG = 'al-haram-makkah-saudi-arabia';
   const DEFAULT_LANG = 'en';
   const DEFAULT_THEME = 'dark';
 
@@ -208,8 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
           pinned.push({ slug, name });
         }
 
-        chrome.storage.local.set({ moscheeSlug: slug, pinnedMosques: pinned }, () => {
-          ladeWidget(slug);
+        chrome.storage.local.set({ moscheeSlug: slug, mosqueSlug: slug, pinnedMosques: pinned }, () => {
+          ladeWidget(slug, currentLang);
           linkInput.value = '';
           renderPinnedBar(pinned, slug);
           statusMsg.textContent = t.successMsg;
@@ -252,8 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
           pinned.push({ slug, name });
         }
         
-        chrome.storage.local.set({ pinnedMosques: pinned, moscheeSlug: slug }, () => {
-          ladeWidget(slug);
+        chrome.storage.local.set({ pinnedMosques: pinned, moscheeSlug: slug, mosqueSlug: slug }, () => {
+          ladeWidget(slug, currentLang);
           linkInput.value = '';
           renderPinnedBar(pinned, slug);
           statusMsg.textContent = t.pinnedSuccess;
@@ -285,8 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const labelSpan = document.createElement('span');
       labelSpan.textContent = item.name;
       labelSpan.addEventListener('click', () => {
-        chrome.storage.local.set({ moscheeSlug: item.slug }, () => {
-          ladeWidget(item.slug);
+        chrome.storage.local.set({ moscheeSlug: item.slug, mosqueSlug: item.slug }, () => {
+          const currentLang = langSelect.value;
+          ladeWidget(item.slug, currentLang);
           renderPinnedBar(pinnedList, item.slug);
         });
       });
@@ -333,22 +334,22 @@ document.addEventListener('DOMContentLoaded', () => {
     return teile.length > 0 ? teile[0] : null;
   }
 
-  function ladeWidget(slug) {
-    iframe.src = `https://mawaqit.net/de/w/${slug}`;
+  function ladeWidget(slug, lang = DEFAULT_LANG) {
+    iframe.src = `https://mawaqit.net/${lang}/w/${slug}`;
   }
 
   // Gespeicherte Einstellungen beim Laden abrufen (Standard: Englisch & Dark Mode)
-  chrome.storage.local.get(['moscheeSlug', 'lang', 'theme', 'pinnedMosques'], (res) => {
+  chrome.storage.local.get(['moscheeSlug', 'mosqueSlug', 'lang', 'theme', 'pinnedMosques'], (res) => {
     const lang = res.lang || DEFAULT_LANG;
-    const slug = res.moscheeSlug || DEFAULT_SLUG;
+    const slug = res.moscheeSlug || res.mosqueSlug || DEFAULT_SLUG;
     const theme = res.theme || DEFAULT_THEME;
     const pinned = res.pinnedMosques || [
-      { slug: DEFAULT_SLUG, name: 'Ensar Camii' }
+      { slug: DEFAULT_SLUG, name: 'Al Haram Makkah' }
     ];
 
     applyLanguage(lang);
     applyTheme(theme);
-    ladeWidget(slug);
+    ladeWidget(slug, lang);
     renderPinnedBar(pinned, slug);
   });
 });

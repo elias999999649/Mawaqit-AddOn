@@ -15,10 +15,11 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
 async function pruefeGebetszeitenUndBenachrichtige() {
   try {
     // Gespeicherten Slug aus dem Storage holen
-    const result = await chrome.storage.local.get(['mosqueSlug']);
-    if (!result.mosqueSlug) return;
+    const result = await chrome.storage.local.get(['mosqueSlug', 'moscheeSlug']);
+    const mosqueSlug = result.mosqueSlug || result.moscheeSlug || 'al-haram-makkah-saudi-arabia';
+    if (!mosqueSlug) return;
 
-    const response = await fetch(`https://mawaqit.net/api/2.0/mosque/${result.mosqueSlug}/prayer-times`);
+    const response = await fetch(`https://mawaqit.net/api/2.0/mosque/${mosqueSlug}/prayer-times`);
     if (!response.ok) return;
 
     const data = await response.json();
